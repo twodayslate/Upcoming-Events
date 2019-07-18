@@ -20,6 +20,7 @@
 		F626F1C922DF5CFD00FEC64C /* empty.json in Resources */ = {isa = PBXBuildFile; fileRef = F626F1C622DEBC9700FEC64C /* empty.json */; };
 		F626F1CA22DF5D2D00FEC64C /* mock.json in Resources */ = {isa = PBXBuildFile; fileRef = F6E2A2AA22DE808D00F49400 /* mock.json */; };
 		F63A409122DE262100A260A7 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63A409022DE262100A260A7 /* Date.swift */; };
+		F6BD99D022E0BA77004333E6 /* EventManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BD99CF22E0BA77004333E6 /* EventManagerTests.swift */; };
 		F6C2082222DE196900C9C288 /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C2082122DE196900C9C288 /* EventManager.swift */; };
 		F6E2A2AB22DE808D00F49400 /* mock.json in Resources */ = {isa = PBXBuildFile; fileRef = F6E2A2AA22DE808D00F49400 /* mock.json */; };
 		F6E2A2B122DEA7B600F49400 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E2A2B022DEA7B600F49400 /* UIViewController.swift */; };
@@ -62,6 +63,7 @@
 		F626F1C622DEBC9700FEC64C /* empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = empty.json; path = eventsTests/empty.json; sourceTree = SOURCE_ROOT; };
 		F63A409022DE262100A260A7 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		F63A409222DE75BF00A260A7 /* invalid.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = invalid.json; path = eventsTests/invalid.json; sourceTree = SOURCE_ROOT; };
+		F6BD99CF22E0BA77004333E6 /* EventManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventManagerTests.swift; sourceTree = "<group>"; };
 		F6C2082122DE196900C9C288 /* EventManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
 		F6E2A2AA22DE808D00F49400 /* mock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = mock.json; path = events/mock.json; sourceTree = SOURCE_ROOT; };
 		F6E2A2B022DEA7B600F49400 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				F63A409222DE75BF00A260A7 /* invalid.json */,
 				F626F1C622DEBC9700FEC64C /* empty.json */,
 				F61B413F22DE14C3009CBDD8 /* eventsTests.swift */,
+				F6BD99CF22E0BA77004333E6 /* EventManagerTests.swift */,
 				F61B414122DE14C3009CBDD8 /* Info.plist */,
 			);
 			path = eventsTests;
@@ -327,6 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6BD99D022E0BA77004333E6 /* EventManagerTests.swift in Sources */,
 				F61B414022DE14C3009CBDD8 /* eventsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -489,6 +493,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C6L3992RFB;
 				INFOPLIST_FILE = events/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -507,6 +512,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C6L3992RFB;
 				INFOPLIST_FILE = events/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -9,10 +9,14 @@
 import Foundation
 
 struct Event: Codable {
-    var title: String /// The title of the given event
-    var startDate: Date /// The start date and time for the given event
-    var endDate: Date /// The end date and time for the given event - for this exercise we assume end is after start
-    var conflicts: Bool = false // This event conflicts with another event
+    /** The title of the given event */
+    var title: String
+    /** The start date and time for the given event */
+    var startDate: Date
+    /** The end date and time for the given event - for this exercise we assume end is after start */
+    var endDate: Date
+    /** This event conflicts with another event */
+    var conflicts: Bool = false
     
     enum CodingKeys: String, CodingKey {
         case title = "title"
@@ -26,7 +30,10 @@ struct Event: Codable {
     
     init?(title: String, startDate: String, endDate: String) {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMMM d, y h:m a" // November 3, 2018 6:00 PM https://waracle.com/iphone-nsdateformatter-date-formatting-table/
+        // Per spec the date format is:
+        // November 3, 2018 6:00 PM
+        // https://waracle.com/iphone-nsdateformatter-date-formatting-table/
+        dateFormatter.dateFormat = "MMMM d, y h:m a"
         self.title = title
         guard let start = dateFormatter.date(from: startDate) else {
             return nil
@@ -55,7 +62,7 @@ struct Event: Codable {
 }
 
 extension Event: Comparable {
-    // Sorts events by start time
+    // Needed to sort events by start time
     static func < (lhs: Event, rhs: Event) -> Bool {
         return lhs.startDate < rhs.startDate
     }

@@ -8,8 +8,10 @@
 
 import UIKit
 
-/// A simple event viewer for Facebook events
-/// Each conflicting event is marked with a check
+/**
+ A simple event viewer for Facebook events
+ Each conflicting event is marked with a check
+ */
 final class EVTableViewController: UITableViewController {
 
     var manager: EventManager? = {
@@ -18,6 +20,7 @@ final class EVTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.Facebook.white
         self.title = "Facebook Events"
         
         self.setEventNavigationBarStyle()

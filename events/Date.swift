@@ -9,9 +9,11 @@
 import Foundation
 
 extension Date {
-    /// This allows for events to be binned by day
-    /// - Returns:
-    /// `DateComponent` with a month, day, and year
+    /**
+     This allows for events to be binned by day
+     - Returns:
+     `DateComponent` with a month, day, and year
+     */
     func binComponents() -> DateComponents {
         return Calendar.current.dateComponents([.month, .day, .year], from: self)
     }

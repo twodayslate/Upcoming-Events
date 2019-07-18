@@ -29,7 +29,8 @@ extension DateComponents: Comparable {
             if ld < rd { return true }
             if ld > rd { return false }
         }
-        // XXX: do more finetune comparison... but this fits our needs
+        // XXX: do more finetune comparison...
+        // but this fits our needs for this assignment
         return false
     }
 }

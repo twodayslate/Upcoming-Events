@@ -9,11 +9,13 @@
 import Foundation
 
 final class EventManager {
-    /// Events are binned by day with the `DateComponents` generated from each
-    /// event's `startDate.components()`
-    /// Used a dictionary for quicker future lookups of events that start on a given date
-    ///  I could have done the date seperation lookup by doing some array filter function
-    ///  but this is much faster in the long run O(1) for day lookups instead of O(n)
+    /**
+     Events are binned by day with the `DateComponents` generated from each
+     event's `startDate.components()`
+     Used a dictionary for quicker future lookups of events that start on a given date
+     I could have done the date seperation lookup by doing some array filter function
+     but this is much faster in the long run O(1) for day lookups instead of O(n)
+     */
     var events = [DateComponents: [Event]]() {
         didSet {
             // reset the cache every time events chagnes
@@ -21,17 +23,22 @@ final class EventManager {
         }
     }
     
-    /// - Complexity:
-    /// O(m + n), where n is the length of this sequence and m is the length of the result.
+    /**
+     All the events
+     - Complexity:
+     O(m + n), where n is the length of this sequence and m is the length of the result.
+     */
     var allEvents: [Event] {
         return self.events.flatMap{ $0.value }
     }
     
     private var _cachedSortedKeys: [DateComponents]? = nil
-    /// Sort the keys by start date
-    /// This is necessary to properly handle conflicts in a performant manner
-    /// - Complexity:
-    /// O(n log n), where n is the length of the sequence.
+    /**
+     Sort the keys by start date
+     This is necessary to properly handle conflicts in a performant manner
+     - Complexity:
+     O(n log n), where n is the length of the sequence.
+     */
     var sortedKeys: [DateComponents] {
         if let cache = _cachedSortedKeys {
             return cache
@@ -90,9 +97,11 @@ final class EventManager {
     
     // MARK: - Events
     
-    /// Adds an event to `events` ensure it is in the correct day bin
-    /// - Note:
-    /// This does not ensure the event is sorted or marked as a conflict
+    /**
+     Adds an event to `events` ensure it is in the correct day bin
+     - Note:
+     This does not ensure the event is sorted or marked as a conflict
+     */
     func add(_ event: Event) {
         let comps = event.startDate.binComponents()
         if let _ = self.events[comps] {
@@ -102,9 +111,11 @@ final class EventManager {
         }
     }
     
-    /// Set and return the events sorted for a given key
-    /// - Complexity:
-    /// O(n log n), where n is the length of the sequence
+    /**
+     Set and return the events sorted for a given key
+     - Complexity:
+     O(n log n), where n is the length of the sequence
+     */
     func sortedEvents(for key: DateComponents) -> [Event]? {
         guard let dayEvents = self.events[key] else { return nil }
         self.events[key] = dayEvents.sorted(by: <)
@@ -113,9 +124,11 @@ final class EventManager {
     
     // MARK: - Conflicts
     
-    // Marks the conflicts for every bin
-    /// - Complexity:
-    /// O(m n log n), where n is the number of values in the sequence, m is the number of different days
+    /**
+     Marks the conflicts for every bin
+     - Complexity:
+     O(m n log n), where n is the number of values in the sequence, m is the number of different days
+     */
     func markConflicts() {
         // O(m)
         for bin in self.events {
@@ -124,9 +137,11 @@ final class EventManager {
         }
     }
     
-    /// Sorts the events for `key` and marks each event for conflicts
-    /// - Complexity:
-    /// O(n log n), where n is the number of values in the sequence
+    /**
+     Sorts the events for `key` and marks each event for conflicts
+     - Complexity:
+     O(n log n), where n is the number of values in the sequence
+     */
     func markConflicts(for key: DateComponents) {
         // O(n log n)
         guard let dayEvents = self.sortedEvents(for: key) else { return }

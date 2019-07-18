@@ -9,11 +9,13 @@
 import Foundation
 import UIKit
 
-/// A simple navigation controller with a white statusbar
+/**
+ A simple navigation controller with a white statusbar
+ */
 final class EVNavigationController: UINavigationController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.view.backgroundColor = UIColor.Facebook.white
         self.setNeedsStatusBarAppearanceUpdate()
     }
     
